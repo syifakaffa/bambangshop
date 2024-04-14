@@ -1,6 +1,10 @@
 # BambangShop Publisher App
 Tutorial and Example for Advanced Programming 2024 - Faculty of Computer Science, Universitas Indonesia
 
+Syifa Kaffa Billah
+2206816430
+Adpro-C
+
 ---
 
 ## About this Project
@@ -48,15 +52,15 @@ You can install Postman via this website: https://www.postman.com/downloads/
     (You might want to use `cargo check` if you only need to verify your work without running the app.)
 
 ## Mandatory Checklists (Publisher)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
+-   [V] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Subscriber model struct.`
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Subscriber repository.`
-    -   [ ] Commit: `Implement list_all function in Subscriber repository.`
-    -   [ ] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [V] Commit: `Create Subscriber model struct.`
+    -   [V] Commit: `Create Notification model struct.`
+    -   [V] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
+    -   [V] Commit: `Implement add function in Subscriber repository.`
+    -   [V] Commit: `Implement list_all function in Subscriber repository.`
+    -   [V] Commit: `Implement delete function in Subscriber repository.`
+    -   [V] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +81,18 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+>1. In the Observer pattern diagram explained by the Head First Design Pattern book, Subscriber is defined as an interface. Explain based on your understanding of Observer design patterns, do we still need an interface (or trait in Rust) in this BambangShop case, or a single Model struct is enough?
+
+Dalam kasus BambangShop, apakah kita memerlukan sebuah interface (atau trait dalam Rust) untuk Subscriber tergantung pada kompleksitas perilaku yang diharapkan dari Subscriber tersebut. Jika semua Subscriber memiliki perilaku yang serupa atau hanya ada satu jenis Subscriber, cukup menggunakan satu Model struct untuk mewakili Subscriber. Namun, Jika terdapat berbagai jenis subsciber yang memiliki perilakunya masing-masing, maka kita dapat menggunakan trait/interface. Dalam kasus BambangShop, semua observers berperilaku serupa dan hanya memiliki satu kelas Subscriber saja, sehingga trait/interface tidak diperlukan, cukup dengan single model struct saja.
+
+>2. id in Program and url in Subscriber is intended to be unique. Explain based on your understanding, is using Vec (list) sufficient or using DashMap (map/dictionary) like we currently use is necessary for this case?
+
+Jika requirement program mengharusnya id Program dan url di Subscriber dibuat secara unik, maka menurut saya menggunakan DashMap (map/dictionary) lebih baik daripada vec (list) karena dapat memastikan bahwa id program dan URL subscriber yang harus unik dapat dijaga dengan efisien. Dengan menggunakan struktur data map, kita dapat dengan mudah mengelola dan memperoleh entri yang unik berdasarkan kunci (key) mereka, yang memudahkan operasi insert, pencarian, dan delete dengan kinerja yang optimal.
+
+>3. When programming using Rust, we are enforced by rigorous compiler constraints to make a thread-safe program. In the case of the List of Subscribers (SUBSCRIBERS) static variable, we used the DashMap external library for thread safe HashMap. Explain based on your understanding of design patterns, do we still need DashMap or we can implement Singleton pattern instead?
+
+Menurut saya, penggunaan DashMap tetap diperlukan untuk memastikan keamanan saat beroperasi secara concurency dan menjamin keamaan thread. Selain itu Singleton pattern sendiri sudah diterapkan di BambangShop, yaitu pada saat menggunakan *lazy_static*.
+
 
 #### Reflection Publisher-2
 
