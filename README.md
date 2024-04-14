@@ -69,11 +69,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [V] Commit: `Implement unsubscribe function in Notification controller.`
     -   [V] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [V] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [V] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [V] Commit: `Implement publish function in Program service and Program controller.`
+    -   [V] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [V] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -110,3 +110,21 @@ Sebelumnya saya pernah menggunakan Postman untuk mendukung perkuliahan Pemrogram
 
 
 #### Reflection Publisher-3
+>1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+Variasi observer pattern yang digunakan pada tutorial ini adalah Push Model. Hal ini terlhat pada function `notify` pada Notification service, di mana data dikirimkan secara langsung ke setiap Subscriber-nya tanpa menunggu permintaan (pull) dari Subscriber.
+
+>2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+Keuntungan:
+- Dengan Pull model, Subscriber memiliki kontrol penuh atas kapan dan bagaimana data diperoleh dari Publisher. Subscriber dapat meminta data hanya ketika diperlukan, hal ini dapat mengoptimalkan penggunaan sumber daya.
+- Pull model memungkinkan Subscriber untuk hanya bergantung pada interface yang didefinisikan oleh Publisher (tidak tergantung pada struktur internal dari Publisher)
+
+
+Kekurangan:
+- Imlementasi Pull model lebih kompleks karena observer perlu mengimplementasikan logic untuk menentukan data yang ingin diterima.
+- Memungkinkan terjadinya redudancy data karena pull model dapat menarik data yang sama berkali-kali jika pengelolaannya tidak baik.
+
+>3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+Jika tidak menggunakan multi-threading dalam proses notifikasi, maka notifikasi akan dilakukan secara berurutan dimana pengiriman notifikasi kepada setiap subscriber akan dilakukan satu per satu secara bergantian. Hal ini akan memperlambat jalannya aplikasi yang juga berdampak pada waktu renspons aplikasi yang lama.
