@@ -62,12 +62,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [V] Commit: `Implement delete function in Subscriber repository.`
     -   [V] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [V] Commit: `Create Notification service struct skeleton.`
+    -   [V] Commit: `Implement subscribe function in Notification service.`
+    -   [V] Commit: `Implement subscribe function in Notification controller.`
+    -   [V] Commit: `Implement unsubscribe function in Notification service.`
+    -   [V] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [V] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -95,5 +95,18 @@ Menurut saya, penggunaan DashMap tetap diperlukan untuk memastikan keamanan saat
 
 
 #### Reflection Publisher-2
+>1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+Pemisahan antara "Service" dan "Repository" dari "Model" dalam desain berbasis MVC bertujuan untuk memisahkan tanggung jawab yang berbeda agar aplikasi menjadi lebih modular, terpisah, dan mudah dipelihara dimana Service bertanggung jawab untuk logika bisnis, seperti validasi dan pengolahan data, sementara Repository bertanggung jawab untuk interaksi dengan penyimpanan data, seperti operasi CRUD ke database. Dengan kata lain, pemisahan ini akan membuat program kita memenuhi Single Responsibility Principle (SRP) dari SOLID Principles.
+
+>2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+Jika kita hanya menggunakan Model dalam desain pattern tanpa memisahkan Service dan Repository, maka seluruh logika bisnis dan interaksi dengan data akan diimplementasikan langsung di dalam Model. Hal ini dapat mengakibatkan kompleksitas kode yang tinggi di setiap model (Program, Subscriber, Notification) karena semua tanggung jawab akan bercampur aduk. Akibatnya, program akan sulit untuk di maintance dan diperluas karena tidak ada pemisahan yang jelas antara lapisan bisnis dan akses data. 
+
+
+>3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Sebelumnya saya pernah menggunakan Postman untuk mendukung perkuliahan Pemrograman Berbasis Platform dimana Postman ini saya gunakan untuk melakukan testing API. Postman sendiri merupakan tools yang berguna untuk menguji fungsionalitas API dengan mengirimkan request HTTP sambil melihat dan menganalisis apakah response yang diberikan sesuai dengan harapan saya.
+
 
 #### Reflection Publisher-3
